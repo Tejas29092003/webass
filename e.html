@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotstar Loading Animation</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #0f1014;
+            overflow: hidden;
+        }
+
+        .mickey-loader {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .head {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #a21818;
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 2s infinite;
+        }
+
+        .ear {
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            background: #000;
+            border-radius: 50%;
+        }
+
+        .ear.left {
+            left: 15px;
+            top: 15px;
+            animation: wiggleLeft 1s infinite;
+        }
+
+        .ear.right {
+            right: 15px;
+            top: 15px;
+            animation: wiggleRight 1s infinite;
+        }
+
+        .hotstar-text {
+            position: absolute;
+            bottom: 40;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #1f80e0;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+            100% { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        @keyframes wiggleLeft {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes wiggleRight {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .container {
+            opacity: 1;
+            animation: fadeOut 3s 6s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { 
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img scr="download.png">
+    <div class="container">
+        <div class="mickey-loader">
+          
+            <div class="hotstar-text">Web Assignment</div>
+        </div>
+    </div>
+
+    <script>
+        // After animation completes, you can redirect to main page
+        setTimeout(() => {
+            // Uncomment the following line to redirect to main page
+            // window.location.href = "main-page.html";
+        }, 4000);
+    </script>
+</body>
+</html>
